@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {PlanetResponse} from '../../models/planets-response.interface';
+import {FilmResponse} from '../../models/films-response-interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const authURL = 'https://swapi.dev/api/planets/';
+const authURL = 'https://swapi.dev/api/films/';
 const requestOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -13,16 +13,15 @@ const requestOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class PlanetsService {
+export class FilmsService {
 
   constructor(private http: HttpClient) { }
 
-  getPlanets(): Observable<PlanetResponse> {
-    return this.http.get<PlanetResponse>(
-       authURL,
-       requestOptions
-    );
- }
-
+    getFilms(): Observable<FilmResponse> {
+      return this.http.get<FilmResponse>(
+         authURL,
+         requestOptions
+      );
+   }
+  
 }
-
